@@ -1,4 +1,11 @@
-module.exports = function countCats(/* matrix */) {
-  throw 'Not implemented';
-  // remove line with error and write your code here
+module.exports = function countCats(matrix) {
+  var number = 0;
+  matrix.forEach(function(rowValue) {
+    rowValue.forEach(function(elementValue) {
+      if (elementValue == "^^") {
+        number++;
+      }
+    });
+  });
+  return number;
 };
