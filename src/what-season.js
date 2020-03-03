@@ -1,11 +1,18 @@
-module.exports = function getSeason(/*date*/) {
-  /*let month = date.getMonth();
-  console.log(month);
+module.exports = function getSeason(date) {
+  if (date == undefined) {
+    return "Unable to determine the time of year!";
+  }
+  if (!(typeof date.getMonth == "function")) {
+    throw new Error("Error");
+  }
+  if (date.getMilliseconds() == 0) {
+    throw new Error("Error");
+  }
+
+  let month = date.getMonth();
   if (month == 0 || month == 1 || month == 11) return "winter";
   else if (month == 2 || month == 3 || month == 4) return "spring";
-  else if (moth == 5 || month == 6 || month == 7) return "summer";
+  else if (month == 5 || month == 6 || month == 7) return "summer";
   else if (month == 8 || month == 9 || month == 10) return "autumn";
-  else throw new Error("Error");*/
-  throw "Not implemented";
-  // remove line with error and write your code here
+  else throw new Error("Error");
 };
